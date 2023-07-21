@@ -1,8 +1,39 @@
 import React from 'react';
 import {View, Text, StyleSheet, TextInput, Button, TouchableOpacity } from "react-native";
 import CreditCard from "./CreditCard";
+import axios from 'axios';
+import { useNavigation } from "@react-navigation/native";
+import { useRoute } from '@react-navigation/native';
 
 const PaymentScreen = () => {
+
+
+
+    const route = useRoute();
+
+    const navigation = useNavigation();
+
+    const handleNavigateToOtraPantalla =async () => {
+        const response = await post(route.params.id);
+        console.log(route.params.id); // Imprime el mensaje en la consola
+        navigation.navigate('qr', {response}); // Navega a la pantalla "OtraPantalla"
+    };
+
+    const post = async (selectedIds) => {
+        try{
+          const response = await axios.post(`http://192.168.100.84:8000/resibo_create/`, {
+            qr_code: "",
+            estado: 1,
+            documento: selectedIds
+          });
+          return response.data;
+        }catch (error){
+          throw error
+        }
+      }
+  
+
+
     return (
        <View style={styles.container}>
            <Text style={styles.title_screen}>Pagoad</Text>
@@ -14,7 +45,7 @@ const PaymentScreen = () => {
                <TextInput style={styles.input} placeholder='000 0000 000 000'/>
                <Text style={styles.title}>Fecha de expiracion</Text>
                <TextInput style={styles.input} placeholder="mm/aa"/>
-               <TouchableOpacity style={styles.button}>
+               <TouchableOpacity style={styles.button} onPress={handleNavigateToOtraPantalla}>
                    <Text style={styles.buttonText}>Pagar</Text>
                </TouchableOpacity>
            </View>

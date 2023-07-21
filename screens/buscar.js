@@ -11,18 +11,20 @@ const Buscar = () => {
     const navigation = useNavigation();
     const handleSearch = () => {
         // Realiza la solicitud a la API con el ID ingresado
-        axios.get(`http://192.168.100.76:8000/documento_detail_search/?demandado=${demandado}&demandante=${demandante}`)
+        axios.get(`http://192.168.100.84:8000/documento_detail_search/?demandado=${demandado}&demandante=${demandante}`)
             .then(response => {
                 // Actualiza el estado con los datos de la API
                 setData(response.data);
 
-                console.log(response.data, response.data.length)
+                console.log(response.data, response.data[0].id)
                 if (response.data.length == 0){
                     Alert.alert('Error', 'No se encontro el documento');
                 }
 
                 if (response.data.length != 0){
-                    navigation.navigate('pago')
+                    navigation.navigate('pago', {
+                        id: response.data[0].id, 
+                    });
                 }
             })
             .catch(error => {
