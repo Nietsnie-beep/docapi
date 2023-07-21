@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, Alert, StyleSheet,Text  } from 'react-native';
+import { View, TextInput, Button, Alert, StyleSheet,Text,TouchableOpacity, Image  } from 'react-native';
 import axios from 'axios';
 import { useNavigation } from "@react-navigation/native";
 const Buscar = () => {
     const [demandado, setId] = useState('');
     const [demandante, setId_2] = useState('');
+    const [libro, setId_3] = useState('');
 
     const [data, setData] = useState(null);
 
@@ -38,25 +39,40 @@ const Buscar = () => {
 
     return (
         <View style={styles.container}>
+            <Image source={require('../assets/obediente.png')} style={styles.image} />
             <TextInput
                 style={styles.input}
-                placeholder="Ingrese el ID a buscar"
+                placeholder="Ingrese el demandado"
                 value={demandado}
                 onChangeText={text => setId(text)}
             />
             <TextInput
                 style={styles.input}
-                placeholder="Ingrese el ID a buscar"
+                placeholder="Ingrese el demandante"
                 value={demandante}
                 onChangeText={text => setId_2(text)}
             />
-            <Button title="Buscar" onPress={handleSearch} />
+
+            <TextInput
+                style={styles.input}
+                placeholder="Ingrese el libro"
+                value={libro}
+                onChangeText={text => setId_3(text)}
+            />
+            <TouchableOpacity
+                title="Buscar"
+                    onPress={handleSearch}
+                style={styles.buttonContainer}
+                color="#3498db"
+            >
+                <Text style={styles.buttonText}>Buscar</Text>
             {data && (
                 <View>
-                    <Text>{data.name}</Text>
+                    <Text >{data.name}</Text>
                     <Text>{data.description}</Text>
                 </View>
             )}
+            </TouchableOpacity>
         </View>
     );
 };
@@ -64,17 +80,48 @@ const Buscar = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 20,
+        padding: 30,
     },
     input: {
-        width: '100%',
-        height: 40,
-        borderWidth: 1,
-        borderColor: '#ccc',
-        paddingHorizontal: 10,
-        marginBottom: 10,
+       backgroundColor: 'white',
+        width:'100%',
+        borderColor: '#e8e8e8',
+
+        borderWidth:1,
+        borderRadius:5,
+        paddingHorizontal:10,
+        marginVertical:5,
+        padding:10
+
+    },
+
+    buttonContainer: {
+        marginVertical: 10,
+        backgroundColor: '#7940D2',
+        borderRadius: 8,
+        width:'90%',
+        height:50,
+        alignItems: 'center',
+        alignSelf:"center",
+        justifyContent: 'center'
+    },
+    buttonText: {
+        color: 'white',
+        fontSize: 16,
+        fontWeight: 'bold',
+        alignItems: 'center',
+        alignSelf:"center",
+        justifyContent: 'center',
+        marginTop:30
+    },
+
+    image:{
+        width:190,
+        height: 190,
+        alignItems: 'center',
+        alignSelf:"center",
+        justifyContent: 'center',
+        marginBottom:15,
     },
 });
 

@@ -7,6 +7,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Buscar from "./screens/buscar";
+import MyDocuments from "./screens/MyDocuments";
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -14,7 +15,8 @@ export default function App() {
 
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={Buscar} />
+            <Stack.Screen name="Home" component={Buscar} />
+            <Stack.Screen name="MyDocuments" component={MyDocuments} />
           <Stack.Screen name="pago" component={PaymentScreen} />
         </Stack.Navigator>
       </NavigationContainer>
