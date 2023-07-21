@@ -5,6 +5,7 @@ import CreditCard from "./screens/CreditCard";
 import PaymentScreen from "./screens/PaymentScreen";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import Qr from './screens/Qr';
 
 import Buscar from "./screens/buscar";
 import MyDocuments from "./screens/MyDocuments";
@@ -18,6 +19,7 @@ export default function App() {
             <Stack.Screen name="Home" component={Buscar} />
             <Stack.Screen name="MyDocuments" component={MyDocuments} />
           <Stack.Screen name="pago" component={PaymentScreen} />
+          <Stack.Screen name="qr" component={Qr} />
         </Stack.Navigator>
       </NavigationContainer>
 
