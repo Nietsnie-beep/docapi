@@ -8,7 +8,7 @@ const Qr = () => {
 
     const route = useRoute();
     var qr = route.params.response.qr_code;
-    qr = "http://192.168.100.84:8000/" + qr
+    qr = "http://192.168.100.76:8000/" + qr
     console.log(qr)
 
 

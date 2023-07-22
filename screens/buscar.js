@@ -12,7 +12,7 @@ const Buscar = () => {
     const navigation = useNavigation();
     const handleSearch = () => {
         // Realiza la solicitud a la API con el ID ingresado
-        axios.get(`http://192.168.100.84:8000/documento_detail_search/?demandado=${demandado}&demandante=${demandante}`)
+        axios.get(`http://192.168.100.76:8000/documento_detail_search/?demandado=${demandado}&demandante=${demandante}`)
             .then(response => {
                 // Actualiza el estado con los datos de la API
                 setData(response.data);
