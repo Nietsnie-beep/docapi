@@ -11,7 +11,11 @@
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
     "@expo/webpack-config": "^18.0.1",
+<<<<<<< HEAD
     "@react-navigation/drawer": "^6.6.3",
+=======
+    "@react-navigation/bottom-tabs": "^6.5.8",
+>>>>>>> a56475646dba2adfa1dba64d742274ae7df05a81
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/stack": "^6.3.17",
     "axios": "^1.4.0",
