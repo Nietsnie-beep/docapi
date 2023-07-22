@@ -22,6 +22,7 @@ const Buscar = () => {
                 }
 
                 if (response.data.length != 0){
+                    console.log(response.data[0].id)
                     navigation.navigate('pago', {
                         id: response.data[0].id, 
                     });

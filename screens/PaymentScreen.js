@@ -7,11 +7,11 @@ import { useRoute } from '@react-navigation/native';
 
 const PaymentScreen = () => {
 
-
-
     const route = useRoute();
 
     const navigation = useNavigation();
+
+    console.log(route.params)
 
     const handleNavigateToOtraPantalla =async () => {
         const response = await post(route.params.id);
