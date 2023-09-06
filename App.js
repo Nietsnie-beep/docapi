@@ -6,45 +6,42 @@ import Qr from './screens/Qr';
 import Buscar from './screens/buscar';
 import PaymentScreen from './screens/PaymentScreen';
 
-<<<<<<< HEAD
-import Buscar from "./screens/buscar";
 import MyDocuments from "./screens/MyDocuments";
-
-=======
+import Icon from 'react-native-vector-icons/FontAwesome';
 const Tab = createBottomTabNavigator();
->>>>>>> a56475646dba2adfa1dba64d742274ae7df05a81
 const Stack = createStackNavigator();
 
+function SettingsStackScreen() {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name="Settings" component={Qr} />
+        </Stack.Navigator>
+    );
+}
+const ProfileStack = () => {
+    return (
+        <Stack.Navigator  screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="Home" component={Buscar}   />
+            <Stack.Screen name="qr" component={Qr}   />
+            <Stack.Screen name="pago" component={PaymentScreen}   />
+        </Stack.Navigator>
+    );
+};
 export default function App() {
   return (
-<<<<<<< HEAD
-
-      <NavigationContainer>
-        <Stack.Navigator>
-            <Stack.Screen name="Home" component={Buscar} />
-            <Stack.Screen name="MyDocuments" component={MyDocuments} />
-          <Stack.Screen name="pago" component={PaymentScreen} />
-          <Stack.Screen name="qr" component={Qr} />
-        </Stack.Navigator>
-      </NavigationContainer>
-
-=======
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="home" component={Buscar} options={{ headerShown: false }}/>
-        <Tab.Screen name="pago" component={PaymentScreen} options={{ headerShown: false }}/>
-        <Tab.Screen name="qr" component={Qr}  options={{ headerShown: false }}/>
+      <Tab.Navigator  >
+        <Tab.Screen name="home" component={ProfileStack} options={{ headerShown: false,   tabBarIcon: ({ color, size }) => (
+                <Icon name="home" color={color} size={size} />
+            ),}}/>
+        <Tab.Screen name="MyDocuments" component={MyDocuments} options={{ headerShown: false }}/>
+
       </Tab.Navigator>
+       {/* <Stack.Navigator>
+            <Stack.Screen name="qr" component={Buscar} />
+        </Stack.Navigator>*/}
     </NavigationContainer>
->>>>>>> a56475646dba2adfa1dba64d742274ae7df05a81
   );
 }
 
-const StackScreens = () => (
-  <Stack.Navigator>
-    <Stack.Screen name="home" component={Buscar} />
-    <Stack.Screen name="pago" component={PaymentScreen} />
-    <Stack.Screen name="qr" component={Qr} />
-    {/* Otras pantallas para la navegación de pila en "Home", "Pago" y "Qr" */}
-  </Stack.Navigator>
-);
+

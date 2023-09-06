@@ -12,7 +12,7 @@ const Buscar = () => {
     const navigation = useNavigation();
     const handleSearch = () => {
         // Realiza la solicitud a la API con el ID ingresado
-        axios.get(`http://192.168.100.76:8000/documento_detail_search/?demandado=${demandado}&demandante=${demandante}`)
+        axios.get(`http://192.168.1.197:8000/documento_detail_search/?demandado=${demandado}&demandante=${demandante}`)
             .then(response => {
                 // Actualiza el estado con los datos de la API
                 setData(response.data);
@@ -30,8 +30,8 @@ const Buscar = () => {
                 }
             })
             .catch(error => {
-                Alert.alert('Error', 'No se pudo obtener los datos de la API');
-                console.error(error);
+                Alert.alert('Error', 'No se encontro el documento');
+                /*console.error(error);*/
             });
 
     };

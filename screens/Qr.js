@@ -8,7 +8,7 @@ const Qr = () => {
 
     const route = useRoute();
     var qr = route.params.response.qr_code;
-    qr = "http://192.168.100.76:8000/" + qr
+    qr = "http://192.168.1.197:8000/" + qr
     console.log(qr)
 
 
@@ -16,6 +16,7 @@ const Qr = () => {
         <View style={styles.container}>
           <View style={styles.titleContainer}>
             <Text style={styles.title_screen}>Qr</Text>
+
           </View>
           <View style={styles.qrContainer}>
             <Image source={{ uri: qr }} style={styles.imagen} />
@@ -36,15 +37,15 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 20, // Ajusta esta distancia según tu preferencia
+        marginTop: 80, // Ajusta esta distancia según tu preferencia
       },
       qrContainer: {
-        flex: 2, // Ajusta la proporción según tu preferencia
+        flex: 1, // Ajusta la proporción según tu preferencia
         justifyContent: 'center',
         alignItems: 'center',
       },
     form: {
-        marginTop:20,
+        marginTop:10,
         marginHorizontal:20
     },
 
