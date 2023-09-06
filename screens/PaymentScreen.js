@@ -21,7 +21,7 @@ const PaymentScreen = () => {
 
     const post = async (selectedIds) => {
         try{
-          const response = await axios.post(`http://192.168.1.197:8000/resibo_create/`, {
+          const response = await axios.post(`http://192.168.100.84:8000/resibo_create/`, {
             qr_code: "",
             estado: 1,
             documento: selectedIds

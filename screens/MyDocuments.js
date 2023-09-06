@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, ActivityIndicator, StyleSheet,Image } from 'react-native';
 import axios from 'axios';
 
-const API_URL = 'http://192.168.1.197:8000/resibo'; // Reemplaza esta URL con la URL de tu API
-const API_URL_img = 'http://192.168.1.197:8000/';
+const API_URL = 'http://192.168.100.84:8000/resibo'; // Reemplaza esta URL con la URL de tu API
+const API_URL_img = 'http://192.168.100.84:8000/';
 /*media/qr_codes/2.png*/
 
 
